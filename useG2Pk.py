@@ -27,4 +27,23 @@ def convert_g2pk_scripts(scripts):
     return g2pk_scripts
 
 
+def convert_g2pk_scripts_pandas(scripts):
+    g2pk_scripts = []
+    g2p = G2p()
+    for index, row in scripts.iterrows():
+        script = row['x']
+        label = row['y']
+        temp = g2p(script)
+        g2pk_scripts.append([temp, label])
+        temp = g2p(script, descriptive=True)
+        g2pk_scripts.append([temp, label])
+        temp = g2p(script, group_vowels=True)
+        g2pk_scripts.append([temp, label])
+        temp = g2p(script, to_syl=False)
+        g2pk_scripts.append([temp, label])
+
+    return g2pk_scripts
+
+
+
 
