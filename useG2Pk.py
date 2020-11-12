@@ -7,6 +7,7 @@
 """
 
 from g2pk import G2p
+from tqdm import tqdm
 
 
 def convert_g2pk_scripts(scripts):
@@ -30,7 +31,7 @@ def convert_g2pk_scripts(scripts):
 def convert_g2pk_scripts_pandas(scripts):
     g2pk_scripts = []
     g2p = G2p()
-    for index, row in scripts.iterrows():
+    for index, row in tqdm(scripts.iterrows()):
         script = row['x']
         label = row['y']
         temp = g2p(script)
@@ -43,6 +44,7 @@ def convert_g2pk_scripts_pandas(scripts):
         g2pk_scripts.append([temp, label])
 
     return g2pk_scripts
+
 
 
 
