@@ -6,3 +6,13 @@ def write_csv_file(file_path, dataset):
     wr = csv.writer(f)
     for item in dataset:
         wr.writerow(item)
+
+
+def read_csv_file(file_path, encoding='utf-8'):
+    scripts = []
+    f = open(file_path, 'r', encoding=encoding)
+    lines = csv.reader(f)
+    for line in lines:
+        scripts.append(line)
+    f.close()
+    return scripts
