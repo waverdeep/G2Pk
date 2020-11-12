@@ -1,5 +1,5 @@
 import csv
-
+import pandas as pd
 
 def write_csv_file(file_path, dataset):
     f = open(file_path, 'w', encoding='utf-8', newline='')
@@ -16,3 +16,7 @@ def read_csv_file(file_path, encoding='utf-8'):
         scripts.append(line)
     f.close()
     return scripts
+
+
+def read_csv_pandas(filepath):
+    return pd.read_csv(filepath)
